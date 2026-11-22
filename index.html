@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agendamento · Demonstração</title>
+<meta name="theme-color" content="#2b1620">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="aviso">Demonstração: os horários e valores abaixo são exemplos.</div>
+
+<header class="topo">
+  <div class="marca">
+    <span class="monograma" aria-hidden="true">M</span>
+    <div><strong id="nomeEstudio">Morgana Martins</strong><span>Estética e micropigmentação</span></div>
+  </div>
+  <nav class="abas" aria-label="Visão">
+    <button type="button" id="abaCliente" aria-pressed="true">Cliente</button>
+    <button type="button" id="abaPainel" aria-pressed="false">Agenda da Morgana</button>
+  </nav>
+</header>
+
+<!-- ============ CLIENTE ============ -->
+<main id="vCliente">
+  <section class="passo" id="p1">
+    <h1>Agende seu horário</h1>
+    <p class="lead">Escolha o procedimento. Você só vê os horários que realmente estão livres.</p>
+    <div class="servicos" id="servicos"></div>
+  </section>
+
+  <section class="passo" id="p2" hidden>
+    <h2>Quando fica bom para você?</h2>
+    <div class="dias" id="dias" role="listbox" aria-label="Dias"></div>
+    <p class="nota" id="notaHoras"></p>
+    <div class="horas" id="horas"></div>
+  </section>
+
+  <section class="passo" id="p3" hidden>
+    <h2>Seus dados</h2>
+    <div class="resumo" id="resumo"></div>
+    <form id="fDados" novalidate>
+      <label>Seu nome <input id="nome" autocomplete="name" required></label>
+      <label>WhatsApp <input id="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(81) 90000-0000" required></label>
+      <p class="erro" id="erro" role="alert"></p>
+      <button class="btn" type="submit">Confirmar agendamento</button>
+    </form>
+  </section>
+
+  <section class="passo" id="p4" hidden>
+    <div class="ok">
+      <span class="selo" aria-hidden="true">✓</span>
+      <h2>Horário reservado</h2>
+      <p id="okTexto"></p>
+      <a class="btn" id="okZap" target="_blank" rel="noopener">Avisar a Morgana no WhatsApp</a>
+      <button class="btn sec" type="button" id="novo">Fazer outro agendamento</button>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAINEL ============ -->
+<main id="vPainel" hidden>
+  <section class="passo">
+    <h1>Agenda</h1>
+    <div class="nav-dia">
+      <button type="button" class="btn sec peq" id="diaAnt" aria-label="Dia anterior">‹</button>
+      <strong id="diaTitulo"></strong>
+      <button type="button" class="btn sec peq" id="diaProx" aria-label="Próximo dia">›</button>
+    </div>
+    <div class="metricas" id="metricas"></div>
+    <ol class="agenda" id="agenda"></ol>
+    <p class="nota">Cada atendimento tem lembrete pronto para enviar à cliente em um toque. Cancelar libera o horário na hora.</p>
+    <button class="btn sec" type="button" id="zerar">Zerar demonstração</button>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
